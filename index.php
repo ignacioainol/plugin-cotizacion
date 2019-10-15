@@ -23,10 +23,8 @@ function jal_install() {
 
 	$sql = "CREATE TABLE $table_name (
 		id mediumint(9) NOT NULL AUTO_INCREMENT,
-		time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
-		name tinytext NOT NULL,
-		text text NOT NULL,
-		url varchar(55) DEFAULT '' NOT NULL,
+		created_at datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+		email VARCHAR(100) NOT NULL,
 		PRIMARY KEY  (id)
 	) $charset_collate;";
 
@@ -39,17 +37,13 @@ function jal_install() {
 function jal_install_data() {
 	global $wpdb;
 	
-	$welcome_name = 'Mr. WordPress';
-	$welcome_text = 'Congratulations, you just completed the installation!';
-	
 	$table_name = $wpdb->prefix . 'liveshoutbox';
 	
 	$wpdb->insert( 
 		$table_name, 
 		array( 
-			'time' => current_time( 'mysql' ), 
-			'name' => $welcome_name, 
-			'text' => $welcome_text, 
+			'name' => 'ignacio ainol', 
+			'email' => 'ignacio.ainolrivera@gmail.com', 
 		) 
 	);
 }
