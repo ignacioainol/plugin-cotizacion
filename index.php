@@ -34,7 +34,8 @@ function jal_install() {
         CREATE TABLE $table_detalles_cotizaciones(
         id mediumint(9) NOT NULL AUTO_INCREMENT,
         product_name VARCHAR(100),
-        id_cotizacion int(10) NOT NULL,
+        id_cotizacion mediumint(9) NOT NULL,
+        FOREIGN KEY (id_cotizacion) REFERENCES $table_cotizaciones(id),
         PRIMARY KEY (id)
         ) $charset_collate;";
 
