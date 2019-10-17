@@ -35,7 +35,7 @@ add_action( 'wp_footer', 'my_action_javascript' ); // Write our JS below here
 add_action('wp_enqueue_scripts','dcms_insert_js');
 
 function dcms_insert_js(){
-    wp_register_script('dcms_miscript', plugins_url(). '/cotizaciones/js/scripts.js', array('jquery'),'1', true);
+    wp_register_script('dcms_miscript', plugin_dir_url(__FILE__). '/js/scripts.js', array('jquery'),'1', true);
     wp_enqueue_script('dcms_miscript');
 
     wp_localize_script('dcms_miscript','dcms_vars',['ajaxurl' => admin_url('admin-ajax.php')]);
